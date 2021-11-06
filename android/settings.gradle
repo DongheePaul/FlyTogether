@@ -1,0 +1,4 @@
+include ':app', ':librarysdkew', ':vecmath'
+
+project(':vecmath').projectDir = new File(rootProject.projectDir, './third_party/vecmath')
+

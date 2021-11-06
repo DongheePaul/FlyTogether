@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dong.Diary.DiaryReadActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/tv_for_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="제목"
+            android:textSize="28dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_for_content"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/linearLayout3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+
+        android:hint="일기를 적어주세요!"
+        android:inputType="textPersonName"
+        android:layout_marginLeft="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_DiaryImage"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/et_write_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="170dp"
+        app:srcCompat="@drawable/application_icon" />
+
+    <TextView
+        android:id="@+id/tv_Emotion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="121dp"
+        android:text="오늘의 감정은?"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_ShowEmotion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp"
+        android:hint="감정"
+        android:textSize="25dp"/>
+
+
+</RelativeLayout>

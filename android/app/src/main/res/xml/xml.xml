@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <tabs>
+        <tab
+            id="@+id/broadcasting_list_tab"
+            icon="@drawable/broadcasting"
+            title="방송목록" />
+        <tab
+            id="@+id/setting_tab"
+            icon="@drawable/setting"
+            title="설정" />
+
+    </tabs>
+</PreferenceScreen>

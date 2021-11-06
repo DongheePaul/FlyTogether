@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dong.AR.DrawARActivity">
+
+    <!-- surface view-->
+    <com.uncorkedstudios.android.view.recordablesurfaceview.RecordableSurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Brush selection, record, undo-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/draw_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Finding surfaces -->
+
+        <com.dong.AR.view.DebugView
+            android:id="@+id/debug_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/button_overflow_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_bg_borderless_oval"
+            android:contentDescription="@string/content_description_overflow_menu"
+            android:padding="16dp"
+            android:src="@drawable/ic_overflow"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
+
+        <com.dong.AR.view.RecordButton
+            android:id="@+id/record_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:accessibilityTraversalBefore="@id/button_pair"
+            android:clickable="true"
+            android:contentDescription="@string/content_description_record"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".93"
+            android:visibility="gone"/>
+
+        <com.dong.AR.view.BrushSelector
+            android:id="@+id/brush_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:accessibilityTraversalBefore="@id/record_button"
+            app:layout_constraintBottom_toBottomOf="@id/record_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/record_button"
+            />
+
+        <com.dong.AR.view.PairButton
+            android:id="@+id/button_pair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/content_description_join_friend"
+            app:layout_constraintBottom_toBottomOf="@id/record_button"
+            app:layout_constraintLeft_toRightOf="@id/record_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/record_button"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/pair_active"
+            style="@style/OverlayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pair_state_paired"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:text="@string/active"
+            android:textSize="10sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/button_pair"
+            app:layout_constraintLeft_toLeftOf="@id/button_pair"
+            app:layout_constraintRight_toRightOf="@id/button_pair" />
+
+        <com.dong.AR.view.PairButtonToolTip
+            android:id="@+id/tooltip_button_pair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/tooltip_offset"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/button_pair"
+            app:layout_constraintEnd_toEndOf="@id/button_pair"
+            app:layout_constraintStart_toStartOf="@id/button_pair" />
+
+
+        <!-- Overflow Menu -->
+        <LinearLayout
+            android:id="@+id/layout_menu_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@color/menu_bg_semi_transparent"
+            android:elevation="3dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/button_overflow_menu"
+            app:layout_constraintTop_toBottomOf="@id/button_overflow_menu">
+
+            <TextView
+                android:id="@+id/menu_item_share_app"
+                style="@style/MenuItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_share_app" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/menu_line_semi_transparent_grey" />
+
+            <TextView
+                android:id="@+id/menu_item_about"
+                style="@style/MenuItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_about" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/menu_item_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_bg_borderless_oval"
+            android:contentDescription="@string/menu_clear"
+            android:padding="16dp"
+            android:src="@drawable/ic_clear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/undo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_bg_borderless_oval"
+            android:contentDescription="@string/content_description_undo"
+            android:onClick="onClickUndo"
+            android:padding="16dp"
+            android:src="@drawable/ic_undo"
+            app:layout_constraintStart_toEndOf="@id/menu_item_clear"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- Sharing -->
+    <com.dong.AR.view.PairView
+        android:id="@+id/view_join"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dong.AR.view.TrackingIndicator
+        android:id="@+id/finding_surfaces_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dong.AR.view.PlaybackView
+        android:id="@+id/playback"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

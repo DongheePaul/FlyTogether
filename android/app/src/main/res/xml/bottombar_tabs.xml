@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <tabs>
+        <tab
+             id="@+id/broadcasting_list_tab"
+            icon="@drawable/broadcasting"
+          title="방송목록" />
+
+        <tab
+            id="@+id/vod_list_tab"
+            icon="@drawable/play_icon"
+            title="VOD" />
+        <tab
+            id="@+id/diary_list_tap"
+            icon="@drawable/diari_icon_for_taps"
+            title="다이어리" />
+
+        <tab
+        id="@+id/setting_tab"
+        icon="@drawable/setting"
+        title="설정" />
+    </tabs>
+</PreferenceScreen>
