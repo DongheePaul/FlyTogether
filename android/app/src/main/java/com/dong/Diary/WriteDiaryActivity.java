@@ -98,7 +98,7 @@ public class WriteDiaryActivity extends AppCompatActivity {
 
     // Replace `<Subscription Key>` with your subscription key.
 // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-    private final String subscriptionKey = "66f2ef117fa24f65af2e797495161781";
+    private final String subscriptionKey = "";
 
     private final FaceServiceClient faceServiceClient =
             new FaceServiceRestClient(apiEndpoint, subscriptionKey);
